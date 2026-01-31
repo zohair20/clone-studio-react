@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import '../App.css';
 
+// Contact links - centralized for easy modification
+const WHATSAPP_LINK = 'https://wa.me/1234567890';
+const TELEGRAM_LINK = 'https://t.me/4kspaceiptv';
+
 // Icons as simple SVG components
 const HomeIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -158,19 +162,6 @@ const RefreshIcon = () => (
   </svg>
 );
 
-const SendIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="22" y1="2" x2="11" y2="13"/>
-    <polygon points="22,2 15,22 11,13 2,9 22,2"/>
-  </svg>
-);
-
-const PhoneIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-  </svg>
-);
-
 const AppleIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor">
     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -184,8 +175,8 @@ const AndroidIcon = () => (
 );
 
 const TvIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <rect x="2" y="7" width="20" height="15" rx="2" ry="2" fill="none" stroke="currentColor" strokeWidth="2"/>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
     <text x="12" y="17" textAnchor="middle" fontSize="7" fill="currentColor" fontWeight="bold">TV</text>
   </svg>
 );
@@ -211,9 +202,43 @@ const SmartTvIcon = () => (
   </svg>
 );
 
+// Animated WhatsApp Icon
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="icon-whatsapp">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
+
+// Animated Telegram Icon
+const TelegramIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="icon-telegram">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+);
+
+// Play button icon for video
+const PlayButtonIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="icon-play">
+    <polygon points="5,3 19,12 5,21"/>
+  </svg>
+);
+
 const Index = () => {
   const [activeDevice, setActiveDevice] = useState(1);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const handleContact = (type: 'whatsapp' | 'telegram') => {
+    const link = type === 'whatsapp' ? WHATSAPP_LINK : TELEGRAM_LINK;
+    window.open(link, '_blank');
+  };
+
+  const handleBuyNow = () => {
+    window.open(WHATSAPP_LINK, '_blank');
+  };
+
+  const handleFreeTrial = () => {
+    window.open(TELEGRAM_LINK, '_blank');
+  };
 
   const plans = [
     { duration: '3 Months', originalPrice: 65, currentPrice: 45, save: 30 },
@@ -270,10 +295,10 @@ const Index = () => {
       {/* Header */}
       <header className="header">
         <div className="header-container">
-          <div className="logo">
+          <a href="#home" className="logo">
             <span className="logo-4k">4K</span>
             <span className="logo-space">SPACE</span>
-          </div>
+          </a>
           <nav className="nav">
             <ul className="nav-links">
               <li><a href="#home" className="nav-link"><HomeIcon /> Home</a></li>
@@ -281,33 +306,55 @@ const Index = () => {
               <li><a href="#channels" className="nav-link"><ChannelsIcon /> Channels List</a></li>
               <li><a href="#setup" className="nav-link"><SetupIcon /> Setup Guide</a></li>
             </ul>
-            <button className="btn-reseller">
+            <button className="btn-reseller" onClick={() => handleContact('telegram')}>
               <ResellerIcon /> Reseller Program
             </button>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="hero" id="home">
+        <div className="hero-video-container">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="hero-video"
+            poster="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&q=80"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-video-overlay"></div>
+        </div>
         <div className="hero-container">
-          <span className="hero-badge">PREMIUM STREAMING</span>
-          <h1 className="hero-title">
-            The Ultimate <span className="highlight">4K IPTV</span> Experience
+          <span className="hero-badge animate-pulse-glow">
+            <PlayButtonIcon />
+            PREMIUM STREAMING
+          </span>
+          <h1 className="hero-title animate-fade-in-up">
+            The Ultimate <span className="highlight animate-glow">4K IPTV</span> Experience
           </h1>
-          <p className="hero-description">
+          <p className="hero-description animate-fade-in-up delay-1">
             Enjoy crystal clear streaming with 18,000+ channels, movies, and sports.
           </p>
-          <div className="hero-features">
-            <span>Works on all devices</span>
-            <span>• No contracts</span>
-            <span>• 24/7 support</span>
+          <div className="hero-features animate-fade-in-up delay-2">
+            <span className="feature-item">
+              <CheckIcon /> Works on all devices
+            </span>
+            <span className="feature-item">
+              <CheckIcon /> No contracts
+            </span>
+            <span className="feature-item">
+              <CheckIcon /> 24/7 support
+            </span>
           </div>
-          <div className="hero-buttons">
-            <button className="btn-primary">
+          <div className="hero-buttons animate-fade-in-up delay-3">
+            <button className="btn-primary btn-animated" onClick={handleBuyNow}>
               Get Started <ArrowIcon />
             </button>
-            <button className="btn-secondary">
+            <button className="btn-secondary btn-animated" onClick={handleFreeTrial}>
               <GiftIcon /> Free Trial
             </button>
           </div>
@@ -318,30 +365,30 @@ const Index = () => {
       <section className="partners">
         <div className="partners-track">
           {['ITV', 'Sky', 'Comedy Central', 'Nickelodeon', 'Paramount+', 'Sky Sports', 'MTV', 'Disney+', 'Prime Video', 'NETFLIX', 'BT Sport', 'beIN', 'BBC', 'ITV', 'Sky', 'Comedy Central', 'Nickelodeon', 'Paramount+', 'Sky Sports', 'MTV', 'Disney+', 'Prime Video', 'NETFLIX', 'BT Sport', 'beIN', 'BBC'].map((partner, i) => (
-            <span key={i} style={{ color: '#fff', fontWeight: 'bold', fontSize: '1.2rem', opacity: 0.7, whiteSpace: 'nowrap' }}>{partner}</span>
+            <span key={i} className="partner-logo">{partner}</span>
           ))}
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="stats-section">
-        <div className="stat-card">
-          <div className="stat-icon"><WifiIcon /></div>
-          <div className="stat-value">18,000+</div>
+        <div className="stat-card animate-on-scroll">
+          <div className="stat-icon icon-animated"><WifiIcon /></div>
+          <div className="stat-value counter">18,000+</div>
           <div className="stat-label">Live Channels</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-icon"><MonitorIcon /></div>
-          <div className="stat-value">80,000+</div>
+        <div className="stat-card animate-on-scroll">
+          <div className="stat-icon icon-animated"><MonitorIcon /></div>
+          <div className="stat-value counter">80,000+</div>
           <div className="stat-label">Movies & Series</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-icon"><PlayIcon /></div>
+        <div className="stat-card animate-on-scroll">
+          <div className="stat-icon icon-animated"><PlayIcon /></div>
           <div className="stat-value">VOD</div>
           <div className="stat-label">On Demand</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-icon"><UsersIcon /></div>
+        <div className="stat-card animate-on-scroll">
+          <div className="stat-icon icon-animated"><UsersIcon /></div>
           <div className="stat-value">Anti-Freeze</div>
           <div className="stat-label">Technology</div>
         </div>
@@ -370,17 +417,17 @@ const Index = () => {
 
         <div className="pricing-grid">
           {plans.map((plan, index) => (
-            <div key={index} className={`pricing-card ${plan.featured ? 'featured' : ''}`}>
+            <div key={index} className={`pricing-card animate-on-scroll ${plan.featured ? 'featured' : ''}`}>
               {plan.featured && (
-                <div className="best-value-badge">
+                <div className="best-value-badge animate-bounce-subtle">
                   <StarIcon /> BEST VALUE
                 </div>
               )}
-              <div className="save-badge">Save {plan.save}%</div>
+              <div className="save-badge">{plan.save}% OFF</div>
               <div className="plan-duration">{plan.duration}</div>
               <div className="plan-price">
                 <span className="original-price">${plan.originalPrice}</span>
-                <span className="current-price">${plan.currentPrice}</span>
+                <span className="current-price">${plan.currentPrice * activeDevice}</span>
               </div>
               <ul className="plan-features">
                 <li className="plan-feature"><CheckIcon /> HD/4K/FHD/HD/SD Quality</li>
@@ -390,7 +437,7 @@ const Index = () => {
                 <li className="plan-feature"><CheckIcon /> REAL SUPPORT 24/7</li>
                 <li className="plan-feature"><CheckIcon /> 7 days money back guarantee</li>
               </ul>
-              <button className="btn-buy">
+              <button className="btn-buy btn-animated" onClick={handleBuyNow}>
                 <CartIcon /> Buy Now
               </button>
             </div>
@@ -400,14 +447,14 @@ const Index = () => {
 
       {/* Trial Section */}
       <section className="trial-section">
-        <button className="btn-trial">
+        <button className="btn-trial btn-animated animate-pulse-glow" onClick={handleFreeTrial}>
           <GiftIcon /> Request FREE 24-Hour Trial
         </button>
         <p className="trial-note">Experience our premium service risk-free. <strong>No credit card required.</strong></p>
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section className="features-section" id="setup">
         <div className="section-container">
           <div className="section-header">
             <h2 className="section-title">Why Choose <span className="highlight">4K Space</span>?</h2>
@@ -415,8 +462,8 @@ const Index = () => {
           </div>
           <div className="features-grid">
             {features.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
+              <div key={index} className="feature-card animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="feature-icon icon-animated">{feature.icon}</div>
                 <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-description">{feature.description}</p>
               </div>
@@ -429,12 +476,12 @@ const Index = () => {
       <section className="devices-section">
         <div className="section-container">
           <div className="section-header">
-            <h2 className="section-title">Works on All Your Devices</h2>
+            <h2 className="section-title">Works on All Your <span className="highlight">Devices</span></h2>
           </div>
           <div className="devices-grid">
             {devices.slice(0, 4).map((device, index) => (
-              <div key={index} className="device-card">
-                <div className="device-icon">{device.icon}</div>
+              <div key={index} className="device-card animate-on-scroll">
+                <div className="device-icon icon-animated">{device.icon}</div>
                 <h3 className="device-name">{device.name}</h3>
                 <p className="device-description">{device.description}</p>
               </div>
@@ -442,8 +489,8 @@ const Index = () => {
           </div>
           <div className="devices-grid-bottom">
             {devices.slice(4).map((device, index) => (
-              <div key={index} className="device-card">
-                <div className="device-icon">{device.icon}</div>
+              <div key={index} className="device-card animate-on-scroll">
+                <div className="device-icon icon-animated">{device.icon}</div>
                 <h3 className="device-name">{device.name}</h3>
                 <p className="device-description">{device.description}</p>
               </div>
@@ -478,13 +525,13 @@ const Index = () => {
       <section className="guarantee-section">
         <div className="section-container">
           <div className="section-header">
-            <h2 className="section-title">Your Satisfaction is Guaranteed</h2>
+            <h2 className="section-title">Your Satisfaction is <span className="highlight">Guaranteed</span></h2>
             <p className="section-subtitle">We stand behind our products and services with these promises</p>
           </div>
           <div className="guarantee-grid">
             {guarantees.map((guarantee, index) => (
-              <div key={index} className="guarantee-card">
-                <div className="guarantee-icon">{guarantee.icon}</div>
+              <div key={index} className="guarantee-card animate-on-scroll">
+                <div className="guarantee-icon icon-animated">{guarantee.icon}</div>
                 <h3 className="guarantee-title">{guarantee.title}</h3>
                 <p className="guarantee-description">{guarantee.description}</p>
               </div>
@@ -497,7 +544,7 @@ const Index = () => {
       <section className="channels-section" id="channels">
         <div className="section-container">
           <div className="section-header">
-            <h2 className="section-title channels-title">Premium Channels</h2>
+            <h2 className="section-title channels-title">Premium <span className="highlight">Channels</span></h2>
             <p className="section-subtitle channels-subtitle">Crystal Clear Quality, Worldwide Entertainment</p>
             <p className="section-subtitle">Explore our collection of 4K/UHD channels, live sports, movies & global entertainment</p>
           </div>
@@ -528,36 +575,58 @@ const Index = () => {
             <p className="footer-description">
               The ultimate IPTV experience with 10,000+ channels in stunning 4K quality.
             </p>
+            <div className="footer-social">
+              <button className="social-btn whatsapp" onClick={() => handleContact('whatsapp')}>
+                <WhatsAppIcon />
+              </button>
+              <button className="social-btn telegram" onClick={() => handleContact('telegram')}>
+                <TelegramIcon />
+              </button>
+            </div>
           </div>
           <div className="footer-column">
             <h4 className="footer-title">Service</h4>
             <div className="footer-links">
-              <a href="#" className="footer-link">Pricing Plans</a>
-              <a href="#" className="footer-link">Setup Guide</a>
+              <a href="#plans" className="footer-link">Pricing Plans</a>
+              <a href="#setup" className="footer-link">Setup Guide</a>
+              <a href="#channels" className="footer-link">Channels List</a>
             </div>
           </div>
           <div className="footer-column">
             <h4 className="footer-title">Support</h4>
             <div className="footer-links">
-              <a href="#" className="footer-link">FAQ</a>
+              <button className="footer-link-btn" onClick={() => handleContact('whatsapp')}>WhatsApp Support</button>
+              <button className="footer-link-btn" onClick={() => handleContact('telegram')}>Telegram Support</button>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          © 2024 4K Station. All rights reserved.
+          © 2024 4K Space. All rights reserved.
         </div>
       </footer>
 
-      {/* Floating Buttons */}
+      {/* Floating Contact Buttons */}
       <div className="floating-buttons">
-        <button className="floating-btn telegram">
-          <SendIcon />
+        <button 
+          className="floating-btn telegram animate-float" 
+          onClick={() => handleContact('telegram')}
+          title="Contact us on Telegram"
+        >
+          <TelegramIcon />
         </button>
-        <button className="floating-btn contact">
+        <button 
+          className="floating-btn contact animate-pulse-border" 
+          onClick={() => handleContact('whatsapp')}
+        >
           Contact us
         </button>
-        <button className="floating-btn whatsapp">
-          <PhoneIcon />
+        <button 
+          className="floating-btn whatsapp animate-float" 
+          onClick={() => handleContact('whatsapp')}
+          title="Contact us on WhatsApp"
+          style={{ animationDelay: '0.5s' }}
+        >
+          <WhatsAppIcon />
         </button>
       </div>
     </div>
