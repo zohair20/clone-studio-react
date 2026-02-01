@@ -352,6 +352,7 @@ const PARTNERS = [
 const Index = () => {
   const [activeDevice, setActiveDevice] = useState(1);
   const [openFaq, setOpenFaq] = useState(null);
+  const [openChannel, setOpenChannel] = useState(null);
 
   const openLink = (type) =>
     window.open(type === "whatsapp" ? WHATSAPP_LINK : TELEGRAM_LINK, "_blank");
@@ -708,8 +709,15 @@ const Index = () => {
           </div>
           <div className="channels-container">
             {CHANNELS.map((ch, i) => (
-              <div key={i} className="channel-region">
-                <button className="region-header">
+              <div
+                key={i}
+                className={`channel-region ${openChannel === i ? "open" : ""}`}
+              >
+                <button
+                  type="button"
+                  className="region-header"
+                  onClick={() => setOpenChannel(openChannel === i ? null : i)}
+                >
                   <div className="region-info">
                     <span>{ch.name}</span>
                     <span className="region-badge">
@@ -718,6 +726,15 @@ const Index = () => {
                   </div>
                   <Icon name="chevronDown" />
                 </button>
+                <div className="region-list">
+                  <div className="region-list-inner">
+                    {Array.from({ length: ch.regions }, (_, j) => (
+                      <span key={j} className="region-item">
+                        {ch.name} – Region {j + 1}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

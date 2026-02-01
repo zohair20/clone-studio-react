@@ -16,7 +16,7 @@
   --border-color: #2a2a2a;
   --badge-red: #ef4444;
   --gradient-top: linear-gradient(180deg, #00d9a5 0%, transparent 100%);
-  --whatsapp-green: #25D366;
+  --whatsapp-green: #25d366;
   --telegram-blue: #0088cc;
 }
 
@@ -32,7 +32,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-primary);
   line-height: 1.6;
@@ -72,17 +73,27 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px var(--accent-glow), 0 0 10px var(--accent-glow);
   }
   50% {
@@ -91,7 +102,8 @@ button {
 }
 
 @keyframes pulseBorder {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 var(--accent-glow-strong);
   }
   50% {
@@ -100,7 +112,8 @@ button {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1);
   }
   50% {
@@ -109,7 +122,8 @@ button {
 }
 
 @keyframes bounceSubtle {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   50% {
@@ -118,7 +132,8 @@ button {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
   }
   50% {
@@ -127,7 +142,8 @@ button {
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -136,8 +152,12 @@ button {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes scroll {
@@ -228,7 +248,7 @@ button {
 }
 
 .btn-animated::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -321,7 +341,7 @@ button {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -450,6 +470,7 @@ button {
   line-height: 1.2;
   margin-bottom: 1.5rem;
   max-width: 600px;
+  color: var(--text-primary);
 }
 
 .hero-title .highlight {
@@ -627,7 +648,11 @@ button {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--text-primary) 0%,
+    var(--accent-primary) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -641,7 +666,12 @@ button {
 /* ========== PRICING SECTION ========== */
 .pricing-section {
   padding: 80px 2rem;
-  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a1210 50%, var(--bg-dark) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--bg-dark) 0%,
+    #0a1210 50%,
+    var(--bg-dark) 100%
+  );
 }
 
 .pricing-header {
@@ -653,6 +683,7 @@ button {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .pricing-title .highlight {
@@ -735,7 +766,11 @@ button {
 .pricing-card.featured {
   border: 2px solid var(--accent-primary);
   transform: scale(1.05);
-  background: linear-gradient(180deg, rgba(0, 217, 165, 0.05) 0%, var(--bg-card) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 217, 165, 0.05) 0%,
+    var(--bg-card) 100%
+  );
 }
 
 .pricing-card.featured:hover {
@@ -783,6 +818,7 @@ button {
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5rem;
+  color: var(--text-primary);
 }
 
 .plan-price {
@@ -872,7 +908,12 @@ button {
 .trial-section {
   text-align: center;
   padding: 80px 2rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 217, 165, 0.05) 50%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 217, 165, 0.05) 50%,
+    transparent 100%
+  );
 }
 
 .btn-trial {
@@ -927,6 +968,7 @@ button {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .section-title .highlight {
@@ -996,6 +1038,7 @@ button {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .feature-description {
@@ -1065,6 +1108,7 @@ button {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .device-description {
@@ -1209,6 +1253,7 @@ button {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  color: var(--text-primary);
 }
 
 .guarantee-description {
@@ -1244,6 +1289,10 @@ button {
   margin-bottom: 1rem;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+.channel-region.open {
+  border-color: var(--accent-primary);
 }
 
 .channel-region:hover {
@@ -1291,10 +1340,41 @@ button {
   height: 20px;
   color: var(--accent-primary);
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
-.channel-region:hover .region-header svg {
+.channel-region.open .region-header svg {
   transform: rotate(180deg);
+}
+
+.region-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.channel-region.open .region-list {
+  max-height: 500px;
+}
+
+.region-list-inner {
+  padding: 0 1.5rem 1.25rem;
+  padding-top: 0;
+}
+
+.region-item {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.region-item:hover {
+  color: var(--text-primary);
+  background: rgba(0, 217, 165, 0.08);
 }
 
 /* ========== FOOTER ========== */
@@ -1439,7 +1519,7 @@ button {
 }
 
 .floating-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1507,13 +1587,13 @@ button {
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .devices-grid,
   .guarantee-grid,
   .stats-section {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -1523,16 +1603,16 @@ button {
   .nav-links {
     display: none;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .section-title,
   .pricing-title {
     font-size: 2rem;
   }
-  
+
   .pricing-grid,
   .features-grid,
   .devices-grid,
@@ -1541,53 +1621,53 @@ button {
   .stats-section {
     grid-template-columns: 1fr;
   }
-  
+
   .pricing-card.featured {
     transform: none;
   }
-  
+
   .pricing-card.featured:hover {
     transform: translateY(-10px);
   }
-  
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .hero-features {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
   }
-  
+
   .toggle-container {
     flex-direction: column;
   }
-  
+
   .toggle-btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .floating-buttons {
     bottom: 1rem;
     right: 1rem;
   }
-  
+
   .floating-btn {
     width: 50px;
     height: 50px;
   }
-  
+
   .floating-btn.contact {
     font-size: 0.85rem;
     padding: 0 1rem;
   }
-  
+
   .floating-btn svg {
     width: 22px;
     height: 22px;
@@ -1598,25 +1678,25 @@ button {
   .hero {
     padding: 100px 1rem 40px;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-description {
     font-size: 1rem;
   }
-  
+
   .btn-primary,
   .btn-secondary {
     width: 100%;
     justify-content: center;
   }
-  
+
   .section-title {
     font-size: 1.75rem;
   }
-  
+
   .current-price {
     font-size: 2.5rem;
   }
