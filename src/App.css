@@ -32,7 +32,12 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-primary);
@@ -99,10 +104,14 @@ button {
 @keyframes pulseGlow {
   0%,
   100% {
-    box-shadow: 0 0 5px var(--accent-glow), 0 0 10px var(--accent-glow);
+    box-shadow:
+      0 0 5px var(--accent-glow),
+      0 0 10px var(--accent-glow);
   }
   50% {
-    box-shadow: 0 0 20px var(--accent-glow-strong), 0 0 40px var(--accent-glow);
+    box-shadow:
+      0 0 20px var(--accent-glow-strong),
+      0 0 40px var(--accent-glow);
   }
 }
 
@@ -139,10 +148,14 @@ button {
 @keyframes glow {
   0%,
   100% {
-    text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+    text-shadow:
+      0 0 10px var(--accent-glow),
+      0 0 20px var(--accent-glow);
   }
   50% {
-    text-shadow: 0 0 20px var(--accent-glow-strong), 0 0 40px var(--accent-glow);
+    text-shadow:
+      0 0 20px var(--accent-glow-strong),
+      0 0 40px var(--accent-glow);
   }
 }
 
@@ -239,7 +252,9 @@ button {
 }
 
 .icon-animated {
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .icon-animated:hover {
@@ -262,7 +277,9 @@ button {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
+  transition:
+    width 0.6s ease,
+    height 0.6s ease;
 }
 
 .btn-animated:hover::before {
@@ -594,7 +611,9 @@ button {
   font-size: 1.2rem;
   opacity: 0.5;
   white-space: nowrap;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
 }
 
 .partner-logo:hover {
@@ -1193,7 +1212,9 @@ button {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
   color: var(--text-secondary);
   line-height: 1.8;
 }
@@ -1375,7 +1396,9 @@ button {
   color: var(--text-secondary);
   font-size: 0.95rem;
   border-radius: 8px;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .region-item:hover {
@@ -1706,4 +1729,92 @@ button {
   .current-price {
     font-size: 2.5rem;
   }
+}
+
+/* Animation bach tswayer ibqaw it-harro l-foq w l-teht */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.media-card {
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Bach kol tswira t-harrek f waqt mkhtalef 3la l-khra */
+.media-card:nth-child(even) {
+  animation-delay: 1s;
+}
+
+.media-card:hover {
+  transform: scale(1.05); /* t-kber chwya fach d-doz 3liha l-mouse */
+  z-index: 10;
+}
+
+.media-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.media-card img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid rgba(0, 255, 157, 0.1);
+}
+
+/* Container li ghadi i-khbi l-fayid */
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  position: relative;
+}
+
+/* L-khit li fih l-aflam */
+.infinite-track {
+  display: flex;
+  width: max-content; /* Bach may-thbsouch tswayer */
+  gap: 25px;
+  animation: scrollLeft 25s linear infinite; /* 25s hiya l-vitesse */
+}
+
+/* fach t-hoveri b mouse, l-slider i-hbas */
+.infinite-track:hover {
+  animation-play-state: paused;
+}
+
+/* L-animation li katzal l-liser */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Khassna n-harroha b nsf l-masafa hit doublina l-list */
+    transform: translateX(-50%);
+  }
+}
+
+.media-card-slider {
+  flex-shrink: 0; /* Bach tswayer may-it-3ssrouch */
+}
+
+.media-card-slider img {
+  width: 200px; /* Qad l-3ard li bghiti */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 157, 0.2);
 }
