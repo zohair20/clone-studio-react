@@ -34,10 +34,10 @@ export default function Hero() {
             muted
             playsInline
             className="hero-video"
-            poster="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&q=80"
+            poster="4K STATION.webm"
           >
             <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4"
+              src="4K STATION.webm"
               type="video/mp4"
             />
           </video>

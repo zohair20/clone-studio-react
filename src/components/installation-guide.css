@@ -1,0 +1,267 @@
+/* Installation Guide Styles */
+
+:root {
+  --primary-green: #34d399;
+  --dark-green: #10b981;
+  --bg-dark-1: #0a1e1e;
+  --bg-dark-2: #1a3a3a;
+  --bg-dark-3: #0f2828;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(16, 185, 129, 0.3);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-hover: rgba(16, 185, 129, 0.1);
+  --icon-bg: rgba(255, 255, 255, 0.08);
+  --icon-hover: rgba(16, 185, 129, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.installation-container {
+  margin-top: 50px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-dark-1) 0%, var(--bg-dark-2) 50%, var(--bg-dark-3) 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background elements */
+.bg-glow-1 {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bg-glow-2 {
+  position: absolute;
+  bottom: -30%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: pulse 10s ease-in-out infinite 2s;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content wrapper */
+.content-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header section */
+.header-section {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.step-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid var(--border-hover);
+  border-radius: 20px;
+  color: var(--primary-green);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Title */
+.main-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.title-highlight {
+  color: var(--primary-green);
+}
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0 0 60px 0;
+  line-height: 1.6;
+  animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+/* Device list */
+.device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Device card */
+.device-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.device-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-hover);
+  transform: translateX(4px);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+}
+
+/* Device content */
+.device-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Icon container */
+.icon-container {
+  width: 44px;
+  height: 44px;
+  background: var(--icon-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.device-card:hover .icon-container {
+  background: var(--icon-hover);
+  transform: scale(1.1);
+}
+
+.device-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+}
+
+/* Device name */
+.device-name {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Chevron icon */
+.chevron-icon {
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.device-card:hover .chevron-icon {
+  color: var(--primary-green);
+  transform: translateX(4px);
+}
+
+/* Footer section */
+.footer-section {
+  margin-top: 50px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out 1s backwards;
+}
+
+.footer-text {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Staggered animation for device cards */
+.device-card:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.3s backwards; }
+.device-card:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.35s backwards; }
+.device-card:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.4s backwards; }
+.device-card:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.45s backwards; }
+.device-card:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.5s backwards; }
+.device-card:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.55s backwards; }
+.device-card:nth-child(7) { animation: fadeInUp 0.5s ease-out 0.6s backwards; }
+.device-card:nth-child(8) { animation: fadeInUp 0.5s ease-out 0.65s backwards; }
+.device-card:nth-child(9) { animation: fadeInUp 0.5s ease-out 0.7s backwards; }
+.device-card:nth-child(10) { animation: fadeInUp 0.5s ease-out 0.75s backwards; }
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .main-title {
+    font-size: 36px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  
+  .device-card {
+    padding: 16px 20px;
+  }
+  
+  .device-name {
+    font-size: 14px;
+  }
+  
+  .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+}
